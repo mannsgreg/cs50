@@ -1,0 +1,401 @@
+//status.c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(int argc, string argv[])
+{
+    if (argc != 2)
+    {
+        printf("Missing command-line argument\n");
+        return 1;
+    }
+    printf("hello, %s\n", argv[1]);
+    return 0;
+}
+////
+//scores.c
+
+#include <cs50.h>
+#include <stdio.h>
+
+// Constant
+const int N = 3;
+
+// Prototype
+float average(int length, int array[]);
+
+int main(void)
+{
+    // Get scores
+    int scores[N];
+    for (int i = 0; i < N; i++)
+    {
+        scores[i] = get_int("Score: ");
+    }
+
+    // Print average
+    printf("Average: %f\n", average(N, scores));
+}
+
+float average(int length, int array[])
+{
+    // Calculate average
+    int sum = 0;
+    for (int i = 0; i < length; i++)
+    {
+        sum += array[i];
+    }
+    return sum / (float) length;
+}
+/////
+
+//meow.c
+
+#include <stdio.h>
+
+int main(void)
+{
+    for (int i = 0; i < 3; i++)
+    {
+        printf("meow\n");
+    }
+}
+//////
+
+//mario.c
+
+#include <cs50.h>
+#include <stdio.h>
+
+//int get_size(void);
+//void print_grid(int n);
+
+//int main(void)
+//{
+  //  int n = get_size();
+   // print_grid(n);
+//}
+
+//int get_size(void)
+//{
+    //int n;
+    //do
+   // {
+   //     n = get_int("Size: ");
+   // }
+   // while (n < 1);
+   /// return n;
+//}//
+
+//void print_grid(int n)
+//{
+ //   for (int i = 0; i < n; i++)
+  //  {
+   //     for (int j = 0; j < n; j++)
+   //     {
+    //        printf("#");
+    //    }
+     //   printf("\n");
+  //  }
+//}
+//identifying the function
+int get_positive_int(string prompt);
+
+//always have this in your code
+int main(void)
+
+{
+    int number = get_positive_int("Height: "); //to get a number from a user
+
+    for (int height = 0; height < number; height++) // for loop inside loop to build blocks #
+    {
+        for (int dots = number - height - 2; dots >= 0; dots--)
+        {
+            printf(" "); //printing dots for visibility, then remove to space
+        }
+        for (int row = 0; row <= height; row++) //loop for rows
+        {
+            printf("#");
+        }
+        printf("\n");
+    }
+}
+
+//get positive number from a user and executing the function
+int get_positive_int(string prompt)
+{
+    int number; //making new integer to copmly with task conditions
+    do // do loop for runing code at least once
+    {
+        number = get_int("%s", prompt);
+    }
+    while (number < 1 || number > 8); // to display digits from 1 to 8 inclusive
+    return number; //will ask again if anything but 1-8 digits
+}
+
+//////////
+
+//length.c
+
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    // Prompt for user's name
+    string name = get_string("Name: ");
+    int length = strlen(name);
+    printf("%i\n", length);
+}
+
+//////
+
+//hi.c
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    string words[2];
+
+    words[0] = "HI!";
+    words[1] = "BYE!";
+
+    printf("%s\n", words[0]);
+    printf("%s\n", words[1]);
+}
+
+/////////////
+//greet.c
+
+//include <cs50.h>
+#include <stdio.h>
+
+int main(int argc, string argv[])
+{
+    if (argc == 2)
+    {
+        printf("hello, %s\n", argv[1]);
+
+    }
+    else
+    {
+        printf("hello, world\n");
+    }
+} 
+/////////////////
+
+//compare.c
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    int x = get_int("What's x? ") ;
+    int y = get_int("What's y? ");
+
+    if (x < y)
+    {
+        printf("x is less than y\n");
+    }
+    else if (x > y)
+    {
+        printf("x is greater than y\n");
+    }
+    else
+    {
+        printf("x is equal to y\n");
+    }
+}
+
+////////////
+
+//calculator.c
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Prompt user for x
+    int x = get_int("x: ");
+
+    // Prompt user for y
+    int y = get_int("y: ");
+
+    // Perform addition
+    printf("%i\n", x + y);
+}
+
+/////////////
+
+//buggy1.c
+
+#include <cs50.h>
+#include <stdio.h>
+
+int get_negative_int(void);
+
+int main(void)
+{
+    int i = get_negative_int();
+    printf("%i\n", i);
+}
+
+// Prompt user for positive integer
+int get_negative_int(void)
+{
+    int n;
+    do
+    {
+        n = get_int("Negative Integer: ");
+    }
+    while (n >= 0);
+    return n;
+}
+
+
+////////////
+//buggy0.c
+
+#include <stdio.h>
+
+int main(void)
+{
+    for (int i = 0; i < 3; i++)
+    {
+        printf("#\n");
+    }
+}
+
+
+
+
+////////
+
+//agree.c
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Prompt user to agree
+    char c = get_char("Do you agree? ");
+
+    // Check whether agreed
+    if (c == 'Y' || c == 'y')
+    {
+        printf("Agreed.\n");
+    }
+    else if (c == 'N' || c == 'n')
+    {
+        printf("Not agreed.\n");
+    }
+}
+
+//////
+
+//population.c
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+
+
+   int start;
+  do
+  {
+ start = get_int("How many llamas are we starting with?\n Please pick more than 9:  \n") ;
+  }
+  while (start < 9);
+
+int end;
+do
+{
+    end = get_int("How many llamas will you want to end up with ?:\n ");
+}
+while (end < start);
+
+int i;
+
+ for ( i = 0; start < end; i++)
+    {start= start + (start/3) - (start/4) ;
+    }
+ printf(" Years: %i\n", i);
+
+}
+
+
+///////////
+
+//population.2
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+   int start;
+  do
+  {
+ start = get_int("How many llamas are we starting with?\n Please pick more than 9:  \n") ;
+  }
+  while (start < 9);
+
+int end;
+do
+{
+    end = get_int("How many llamas will you want to end up with ?:\n ");
+}
+while (end < start);
+
+int i;
+
+ for ( i = 0; start < end; i++)
+    {start= start + (start/3) - (start/4) ;
+    }
+ printf(" Years: %i\n", i);
+}
+
+
+/////////////
+
+//scrabble.c
+
+#include <ctype.h>
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+
+// Points assigned to each letter of the alphabet
+int POINTS[] = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10};
+
+int compute_score(string word);
+
+int main(void)
+{
+    // Get input words from both players
+    string word1 = get_string("Player 1: ");
+    string word2 = get_string("Player 2: ");
+
+    // Score both words
+    int score1 = compute_score(word1);
+    int score2 = compute_score(word2);
+
+   if (score1>score 2) { printf("Player 1 wins!");}
+    else if (score2>score1) { printf("Player 2 wins!");}
+     else if (score2==score1) { printf("Tie!");}
+}
+
+int compute_score(string word)
+{
+   return 0; // TODO: Compute and return score for string
+}
+
+////////
